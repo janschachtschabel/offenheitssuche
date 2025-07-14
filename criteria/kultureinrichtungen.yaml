@@ -1,0 +1,304 @@
+metadata:
+  name: "Kultureinrichtungen"
+  description: "Kriterienkatalog für die Bewertung der Offenheit von Kultureinrichtungen wie Museen, Theater, Bibliotheken und Kulturzentren"
+  version: "2.0"
+  organization_type: "kultureinrichtungen"
+  created_date: "2025-01-08"
+  author: "Offenheitscrawler Team"
+
+dimensions:
+  offenes_kulturerbe_und_wissen:
+    name: "Offenes Kulturerbe & Wissen"
+    description: "Offener Zugang zu kulturellem Erbe und Wissen"
+    factors:
+      digitale_sammlungen:
+        name: "Digitale Sammlungen und Open GLAM"
+        description: "Verfügbarkeit digitaler Sammlungen unter offenen Lizenzen"
+        criteria:
+          online_sammlung_verfuegbar:
+            name: "Online-Sammlung mit offener Lizenzierung"
+            description: "Digitale Sammlung mit Creative Commons oder Public Domain Lizenzen"
+            type: "operational"
+            patterns:
+              text: ["online-katalog", "sammlungsdatenbank", "digitales archiv", "online sammlung", "digitale sammlung", "creative commons", "public domain", "cc0"]
+            weight: 1.0
+          
+          apis_und_datenexport:
+            name: "APIs und Datenexport für Sammlungsdaten"
+            description: "Programmatischer Zugang zu Metadaten über APIs oder Datenexport"
+            type: "operational"
+            patterns:
+              text: ["api", "datenexport", "json", "xml", "csv", "metadaten download", "linked data", "schnittstelle"]
+            weight: 1.0
+          
+          iiif_standard:
+            name: "Nutzung des IIIF-Standards"
+            description: "Implementation des International Image Interoperability Framework"
+            type: "operational"
+            patterns:
+              text: ["iiif", "international image interoperability", "mirador", "openseadragon"]
+            weight: 1.0
+          
+          open_glam_policy:
+            name: "Open GLAM Policy"
+            description: "Veröffentlichung einer Open Access/Open GLAM Policy für Sammlungen"
+            type: "strategic"
+            patterns:
+              text: ["open glam policy", "offene sammlungspolitik", "digitalisierungsstrategie", "open access policy"]
+            weight: 1.0
+      
+      offene_bildungsressourcen:
+        name: "Offene Bildungsressourcen und Vermittlung"
+        description: "Bereitstellung offener Bildungsmaterialien"
+        criteria:
+          oer_materialien:
+            name: "Open Educational Resources (OER) verfügbar"
+            description: "Bildungsmaterialien unter offenen Lizenzen"
+            type: "operational"
+            patterns:
+              text: ["bildungsmaterialien", "didaktik", "oer", "open educational resources", "unterrichtsmaterial", "lernmaterialien"]
+            weight: 1.0
+          
+          digitale_lernressourcen:
+            name: "Digitale Lernressourcen und Tutorials"
+            description: "Online verfügbare Lern- und Lehrmaterialien"
+            type: "operational"
+            patterns:
+              text: ["tutorial", "anleitung", "lernmaterial", "online kurs", "webinar", "e-learning", "mooc"]
+            weight: 1.0
+          
+          wissenscommunity_kooperationen:
+            name: "Kooperationen mit Wissenscommunities"
+            description: "Aktive Zusammenarbeit mit Wikimedia, Wikipedia, OpenStreetMap"
+            type: "operational"
+            patterns:
+              text: ["wikimedia", "wikipedia", "openstreetmap", "wikidata", "commons"]
+            weight: 1.0
+      
+      forschungszugang:
+        name: "Offener Forschungszugang"
+        description: "Zugang für Forschung und Wissenschaft"
+        criteria:
+          forschungszugang_digital:
+            name: "Digitaler Forschungszugang zu Sammlungen"
+            description: "Spezielle Zugänge für Forschende zu digitalen Beständen"
+            type: "operational"
+            patterns:
+              text: ["forschungszugang", "wissenschaftlicher zugang", "forschungsportal", "wissenschaftsportal"]
+            weight: 1.0
+          
+          kulturportale_integration:
+            name: "Integration in übergreifende Kulturportale"
+            description: "Datenlieferung an Deutsche Digitale Bibliothek, Europeana etc."
+            type: "operational"
+            patterns:
+              text: ["deutsche digitale bibliothek", "europeana", "kulturportal", "datenlieferant"]
+            weight: 1.0
+          
+          metadatenstandards:
+            name: "Offene Metadatenstandards"
+            description: "Bekenntnis zur Nutzung offener Metadatenstandards"
+            type: "strategic"
+            patterns:
+              text: ["dublin core", "lido", "metadatenstandard", "technische dokumentation"]
+            weight: 1.0
+
+  partizipation_und_co_creation:
+    name: "Partizipation & Co-Creation"
+    description: "Beteiligung der Öffentlichkeit an kulturellen Prozessen"
+    factors:
+      buergerschaftliche_beteiligung:
+        name: "Bürgerschaftliche Beteiligung"
+        description: "Möglichkeiten zur aktiven Beteiligung der Bürger"
+        criteria:
+          crowdsourcing_projekte:
+            name: "Crowdsourcing-Projekte für Sammlungserschließung"
+            description: "Projekte zur gemeinsamen Erschließung von Sammlungen"
+            type: "operational"
+            patterns:
+              text: ["crowdsourcing", "mitmach-projekte", "citizen science", "transkription", "annotation", "bürgerbeteiligung"]
+            weight: 1.0
+          
+          nutzergenierte_inhalte:
+            name: "Plattformen für nutzergenerierte Inhalte"
+            description: "Möglichkeiten für Besucher, eigene Inhalte beizutragen"
+            type: "operational"
+            patterns:
+              text: ["user-generated content", "user generated content", "besucher beiträge", "kommentare", "upload-funktionen", "nutzerinhalte"]
+            weight: 1.0
+      
+      co_creation:
+        name: "Co-Creation und kollaborative Projekte"
+        description: "Gemeinsame Entwicklung von Inhalten und Projekten"
+        criteria:
+          kollaborative_ausstellungen:
+            name: "Kollaborative Ausstellungsentwicklung"
+            description: "Beteiligung der Öffentlichkeit an Ausstellungskonzeption"
+            type: "operational"
+            patterns:
+              text: ["kollaborative ausstellung", "partizipative kuration", "gemeinschaftliche kuration", "mitgestaltung"]
+            weight: 1.0
+
+  transparenz_und_governance:
+    name: "Transparenz & Governance"
+    description: "Offenheit in Verwaltung und Entscheidungsprozessen"
+    factors:
+      finanzielle_transparenz:
+        name: "Finanzielle Transparenz"
+        description: "Offenlegung von Finanzinformationen"
+        criteria:
+          jahresberichte:
+            name: "Veröffentlichung von Jahresberichten"
+            description: "Regelmäßige Veröffentlichung von Tätigkeits- und Finanzberichten"
+            type: "operational"
+            patterns:
+              text: ["jahresbericht", "tätigkeitsbericht", "geschäftsbericht", "finanzbericht", "annual report"]
+            weight: 1.0
+          
+          finanzierungsquellen:
+            name: "Transparenz über Finanzierungsquellen"
+            description: "Offenlegung von Förderern, Sponsoren und Finanzierungsquellen"
+            type: "operational"
+            patterns:
+              text: ["förderer", "sponsoren", "finanzierung", "unterstützer", "partner", "drittmittel"]
+            weight: 1.0
+      
+      organisatorische_transparenz:
+        name: "Organisatorische Transparenz"
+        description: "Transparenz über Struktur und Entscheidungsprozesse"
+        criteria:
+          organigramm_verfuegbar:
+            name: "Organigramm und Struktur verfügbar"
+            description: "Veröffentlichung der Organisationsstruktur und Zuständigkeiten"
+            type: "operational"
+            patterns:
+              text: ["organigramm", "organisationsstruktur", "team", "mitarbeiter", "leitung", "vorstand"]
+            weight: 1.0
+          
+          entscheidungsprozesse:
+            name: "Transparenz über Entscheidungsprozesse"
+            description: "Offenlegung von Entscheidungswegen und Beteiligungsmöglichkeiten"
+            type: "strategic"
+            patterns:
+              text: ["entscheidungsprozess", "beirat", "kuratorium", "partizipation", "mitbestimmung"]
+            weight: 1.0
+
+  offene_werte_und_zugaenglichkeit:
+    name: "Offene Werte & Zugänglichkeit"
+    description: "Bekenntnis zu Offenheit, Inklusion und Barrierefreiheit"
+    factors:
+      barrierefreiheit_und_inklusion:
+        name: "Barrierefreiheit und Inklusion"
+        description: "Maßnahmen für barrierefreien und inklusiven Zugang"
+        criteria:
+          barrierefreiheitserklaerung:
+            name: "Barrierefreiheitserklärung vorhanden"
+            description: "Veröffentlichung einer Barrierefreiheitserklärung"
+            type: "operational"
+            patterns:
+              text: ["barrierefreiheitserklärung", "erklärung zur barrierefreiheit", "barrierefreiheit", "wcag"]
+            weight: 1.0
+          
+          inklusive_angebote:
+            name: "Inklusive Angebote und Programme"
+            description: "Spezielle Angebote für Menschen mit Behinderungen oder besonderen Bedürfnissen"
+            type: "operational"
+            patterns:
+              text: ["inklusion", "gebärdensprache", "leichte sprache", "tastführung", "audiodeskription", "blindenführung", "barrierearm"]
+            weight: 1.0
+          
+          mehrsprachige_angebote:
+            name: "Mehrsprachige Angebote"
+            description: "Informationen und Führungen in verschiedenen Sprachen"
+            type: "operational"
+            patterns:
+              text: ["mehrsprachig", "englisch", "französisch", "spanisch", "sprachauswahl", "international"]
+            weight: 1.0
+          
+          offenheitsprinzipien_mission:
+            name: "Offenheitsprinzipien in Mission Statement"
+            description: "Explizites Bekenntnis zu Offenheit, Zugänglichkeit und Partizipation im Leitbild"
+            type: "strategic"
+            patterns:
+              text: ["offenheit", "zugänglichkeit", "partizipation", "freies wissen", "leitbild", "mission"]
+            weight: 1.0
+          
+          open_glam_kooperationen:
+            name: "Kooperationen mit Open-GLAM-Initiativen"
+            description: "Sichtbare Kooperationen mit OpenGLAM, Open Knowledge Foundation etc."
+            type: "operational"
+            patterns:
+              text: ["openglam", "open knowledge foundation", "creative commons", "open library badge"]
+            weight: 1.0
+      
+      soziale_offenheit:
+        name: "Soziale Offenheit und Teilhabe"
+        description: "Maßnahmen zur Förderung sozialer Teilhabe"
+        criteria:
+          kostenfreie_angebote:
+            name: "Kostenfreie oder ermäßigte Angebote"
+            description: "Regelmäßige kostenfreie Angebote oder Ermäßigungen"
+            type: "operational"
+            patterns:
+              text: ["kostenlos", "freier eintritt", "ermäßigung", "sozialpass", "familienkarte"]
+            weight: 1.0
+          
+          outreach_programme:
+            name: "Outreach-Programme für unterrepräsentierte Gruppen"
+            description: "Spezielle Programme für gesellschaftliche Gruppen"
+            type: "operational"
+            patterns:
+              text: ["aufsuchende arbeit", "integration", "migration", "senioren", "jugend", "bildungsbenachteiligte"]
+            weight: 1.0
+
+  innovation_und_offene_technologien:
+    name: "Innovation & Offene Technologien"
+    description: "Einsatz innovativer und offener Technologien"
+    factors:
+      open_source_technologien:
+        name: "Open Source Technologien"
+        description: "Nutzung und Förderung offener Technologien"
+        criteria:
+          open_source_software:
+            name: "Einsatz von Open Source Software"
+            description: "Verwendung offener Software-Lösungen"
+            type: "operational"
+            patterns:
+              text: ["open source", "quelloffene software", "freie software", "linux", "wordpress", "drupal", "omeka"]
+            weight: 1.0
+          
+          offene_standards:
+            name: "Verwendung offener Standards"
+            description: "Implementation offener Datenformate und Standards"
+            type: "operational"
+            patterns:
+              text: ["dublin core", "marc", "mods", "oai-pmh", "rdf", "linked open data", "offene standards"]
+            weight: 1.0
+          
+          technische_richtlinien:
+            name: "Technische Richtlinien und Best Practices"
+            description: "Veröffentlichung von technischen Richtlinien zur Digitalisierung und Datenbereitstellung"
+            type: "operational"
+            patterns:
+              text: ["technische standards", "digitalisierungsleitfäden", "best practices", "richtlinien digitalisierung"]
+            weight: 1.0
+      
+      digitale_innovation:
+        name: "Digitale Innovation und Experimente"
+        description: "Innovative digitale Ansätze und Experimente"
+        criteria:
+          ar_vr_angebote:
+            name: "Augmented Reality / Virtual Reality Angebote"
+            description: "Einsatz von AR/VR-Technologien für Vermittlung"
+            type: "operational"
+            patterns:
+              text: ["augmented reality", "erweiterte realität", "virtual reality", "virtuelle realität", "ar", "vr", "360 grad", "immersiv"]
+            weight: 1.0
+          
+          ki_experimente:
+            name: "Künstliche Intelligenz und Machine Learning"
+            description: "Experimenteller Einsatz von KI-Technologien"
+            type: "operational"
+            patterns:
+              text: ["künstliche intelligenz", "maschinelles lernen", "ki", "chatbot", "automatische verschlagwortung"]
+            weight: 1.0

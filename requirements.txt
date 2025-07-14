@@ -1,0 +1,41 @@
+# Offenheitscrawler - Python Dependencies
+# Installiere mit: pip install -r requirements.txt
+
+# === Core Web Framework ===
+streamlit>=1.28.0,<2.0.0          # Web-Interface und Dashboard
+
+# === Logging ===
+loguru>=0.7.2,<1.0.0              # Erweiterte Logging-Funktionalität
+
+# === AI/ML APIs ===
+openai>=1.3.0,<2.0.0              # OpenAI GPT API Client
+
+# === Data Processing ===
+pandas>=2.0.0,<3.0.0              # Datenanalyse und CSV-Verarbeitung
+numpy>=1.24.0,<2.0.0              # Numerische Berechnungen
+pyyaml>=6.0.1,<7.0.0              # YAML-Kriterienkataloge laden
+
+# === Visualization ===
+plotly>=6.1.1,<7.0.0              # Interaktive Diagramme (kompatibel mit Kaleido)
+kaleido>=1.0.0,<2.0.0             # PNG-Export für Plotly Charts
+matplotlib>=3.7.0,<4.0.0          # Basis-Plotting (Fallback)
+seaborn>=0.12.0,<1.0.0            # Statistische Visualisierungen
+
+# === HTTP Requests ===
+requests>=2.31.0,<3.0.0           # HTTP-Anfragen (Fallback)
+
+# === Alternative Search Engine Tool Dependencies ===
+# For DuckDuckGo search, proxy rotation, and web crawling
+beautifulsoup4>=4.12.0,<5.0.0     # HTML parsing for web crawling
+lxml>=4.9.0,<5.0.0                # XML/HTML parser (faster than html.parser)
+urllib3>=2.0.0,<3.0.0             # HTTP client library
+html5lib>=1.1,<2.0                # HTML5 parser for BeautifulSoup
+ddgs>=9.0.0                       # Reliable DuckDuckGo search functionality
+
+# === System Requirements ===
+# Node.js 20+ erforderlich für Gemini CLI:
+# npm install -g @google/gemini-cli
+# 
+# API Keys erforderlich:
+# - OpenAI API Key: https://platform.openai.com/api-keys
+# - Google AI Studio API Key: https://aistudio.google.com/app/apikey

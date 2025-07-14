@@ -1,0 +1,212 @@
+metadata:
+  name: "Bildungseinrichtungen"
+  description: "Kriterienkatalog für die Bewertung der Offenheit von allgemeinen Bildungseinrichtungen wie Schulen, Volkshochschulen und Weiterbildungseinrichtungen"
+  version: "2.0"
+  organization_type: "bildungseinrichtungen"
+  created_date: "2025-01-08"
+  author: "Offenheitscrawler Team"
+
+dimensions:
+  offene_bildungspraxis_und_inhalte:
+    name: "Offene Bildungspraxis und -inhalte"
+    description: "Nutzung offener Werkzeuge, Ressourcen und Praktiken in der Bildung"
+    factors:
+      einsatz_offener_digitaler_werkzeuge:
+        name: "Einsatz offener digitaler Werkzeuge für Lehre und Verwaltung"
+        description: "Verwendung von Open Source Software und offenen Plattformen"
+        criteria:
+          offene_lernplattform:
+            name: "Nutzung einer offenen Lernplattform"
+            description: "Präsenz von URLs oder Logos für Moodle, ILIAS (als Open Source), BigBlueButton auf der Webseite"
+            type: "operational"
+            patterns:
+              text: ["moodle", "ilias", "bigbluebutton", "lernplattform", "lms"]
+              url: ["/moodle", "/ilias", "/lms"]
+              logo: ["moodle", "ilias", "bigbluebutton"]
+            weight: 1.0
+          
+          offene_kommunikationstools:
+            name: "Nutzung offener Kommunikations- oder Kollaborationstools"
+            description: "Präsenz von URLs oder Logos für Nextcloud, Rocket.Chat, Jitsi Meet"
+            type: "operational"
+            patterns:
+              text: ["nextcloud", "rocket.chat", "jitsi meet", "kollaborationstools", "kommunikationstools"]
+              url: ["/nextcloud", "/jitsi", "/rocket"]
+              logo: ["nextcloud", "jitsi", "rocket.chat"]
+            weight: 1.0
+          
+          open_source_strategie:
+            name: "Strategie zur Nutzung von Open Source Software"
+            description: "Textsuche nach Open Source Strategie, quelloffene Software Präferenz in IT-Konzepten"
+            type: "strategic"
+            patterns:
+              text: ["open source strategie", "quelloffene software", "freie software", "oss strategie", "it-konzept"]
+            weight: 1.0
+      
+      nutzung_offener_bildungsressourcen:
+        name: "Nutzung offener Bildungsressourcen (OER)"
+        description: "Bereitstellung und Nutzung von Open Educational Resources"
+        criteria:
+          oer_repository:
+            name: "Vorhandensein eines OER-Repositories/Plattformverlinkung"
+            description: "Link zu Moodle, Mahara, Open Educational Resources Hub oder spezifische Unterseite /oer, /open-materials"
+            type: "operational"
+            patterns:
+              text: ["oer", "open educational resources", "freie lernmaterialien", "offene bildungsressourcen"]
+              url: ["/oer", "/open-materials", "/resources", "/materialien"]
+            weight: 1.0
+          
+          offene_lizenzen:
+            name: "Lernmaterialien sind unter offenen Lizenzen"
+            description: "Suche nach Lizenzhinweisen (z.B. CC BY, Creative Commons) in der Nähe von Download-Links"
+            type: "operational"
+            patterns:
+              text: ["cc by", "creative commons", "cc-lizenz", "offene lizenz", "freie lizenz"]
+            weight: 1.0
+          
+          oer_policy_strategie:
+            name: "Erwähnung einer OER-Policy oder OER-Strategie"
+            description: "Textsuche nach OER Policy, Open Educational Resources Strategie, Freie Lernmaterialien Leitlinie"
+            type: "strategic"
+            patterns:
+              text: ["oer policy", "oer-strategie", "open educational resources strategie", "freie lernmaterialien leitlinie"]
+            weight: 1.0
+      
+      rahmenbedingungen_aktive_teilnahme:
+        name: "Rahmenbedingungen und Praktiken für aktive Teilnahme und Zusammenarbeit in Bildungsprozessen"
+        description: "Förderung flexibler und offener Bildungspraktiken"
+        criteria:
+          flexible_lernzeitmodelle:
+            name: "Kommunizierte flexible Lernzeitmodelle oder Offenheit für individuelle Lernpfade"
+            description: "Textsuche nach flexible Lernzeiten, individuelle Lernwege, Freiarbeit auf pädagogischen Konzeptseiten"
+            type: "operational"
+            patterns:
+              text: ["flexible lernzeiten", "individuelle lernwege", "freiarbeit", "selbstgesteuertes lernen"]
+            weight: 1.0
+          
+          offene_bildungspraktiken_strategie:
+            name: "Erwähnung von offenen Bildungspraktiken in einer Strategie"
+            description: "Textsuche nach OEP Policy, Open Educational Practice Strategie, Leitlinie offenen Bildungspraktiken"
+            type: "strategic"
+            patterns:
+              text: ["oep policy", "oep-strategie", "offene bildungspraktiken", "leitlinie offene bildungspraktiken"]
+            weight: 1.0
+
+  transparenz_und_partizipation:
+    name: "Transparenz und Partizipation der Einrichtung"
+    description: "Offene Entscheidungsfindung und Beteiligung"
+    factors:
+      offene_entscheidungsfindung:
+        name: "Offene Entscheidungsfindung und Beteiligung"
+        description: "Transparenz in Entscheidungsprozessen und Möglichkeiten zur Partizipation"
+        criteria:
+          protokolle_beschluesse:
+            name: "Veröffentlichung von Protokollen oder Beschlüssen von Sitzungen und Meetings"
+            description: "Links zu Protokolle, Beschlüsse in Download-Bereichen; Suche nach Zeitstempeln und Titeln"
+            type: "operational"
+            patterns:
+              text: ["protokolle", "beschlüsse", "sitzungsprotokolle", "gremienprotokolle", "schulkonferenz"]
+              url: ["/downloads", "/protokolle", "/beschluesse"]
+            weight: 1.0
+          
+          online_feedback_vorschlaege:
+            name: "Möglichkeit zur Online-Einreichung von Vorschlägen/Feedback"
+            description: "Vorhandensein von Online-Formularen für Vorschläge, Kummerkasten oder Feedback-Bereichen"
+            type: "operational"
+            patterns:
+              text: ["feedback", "vorschläge", "kummerkasten", "online-formular", "kontaktformular", "anregungen"]
+            weight: 1.0
+          
+          partizipationsleitlinien:
+            name: "Erwähnung von Leitlinien zur Partizipation"
+            description: "Textsuche nach Partizipation, Beteiligung, Partizipationskonzept in Leitbildern"
+            type: "strategic"
+            patterns:
+              text: ["partizipation", "beteiligung", "partizipationskonzept", "mitbestimmung", "teilhabe"]
+            weight: 1.0
+      
+      offene_inhaltsentwicklung:
+        name: "Offene Inhalts- und Angebotsentwicklung"
+        description: "Beteiligung von Lernenden und externen Akteuren an der Inhaltsentwicklung"
+        criteria:
+          lernende_inhalte_mitgestalten:
+            name: "Projekte, bei denen Lernende aktiv Inhalte mitgestalten"
+            description: "Links zu internen Wikis, Blogs oder Plattformen mit Autorenbereichen für Lernende"
+            type: "operational"
+            patterns:
+              text: ["schüler-wiki", "schüler-blog", "projekte", "arbeitsgemeinschaften", "inhalte erstellen"]
+              url: ["/wiki", "/blog", "/projekte"]
+            weight: 1.0
+          
+          externe_kooperationen_inhalte:
+            name: "Kooperation mit externen Akteuren bei der Gestaltung von Unterrichtsinhalten oder Projekten"
+            description: "Erwähnung von Kooperationspartnern oder Projekten mit externen Organisationen"
+            type: "operational"
+            patterns:
+              text: ["kooperationspartner", "externe partner", "projekte mit unternehmen", "kooperation vereine"]
+            weight: 1.0
+
+  offene_werte:
+    name: "Offene Werte"
+    description: "Bekenntnis zu Offenheit, Inklusion und Barrierefreiheit"
+    factors:
+      zugaenglichkeit_und_barrierefreiheit:
+        name: "Zugänglichkeit und Barrierefreiheit"
+        description: "Maßnahmen für barrierefreien Zugang zu Bildung"
+        criteria:
+          barrierefreiheitserklaerung:
+            name: "Vorhandensein einer Barrierefreiheitserklärung"
+            description: "Direkter Link zur Barrierefreiheitserklärung (gemäß EU-Richtlinie) auf der Webseite"
+            type: "operational"
+            patterns:
+              text: ["barrierefreiheitserklärung", "accessibility statement", "barrierefreiheit"]
+              url: ["/barrierefreiheit", "/accessibility"]
+            weight: 1.0
+          
+          leichte_sprache_mehrsprachig:
+            name: "Angebote in Leichter Sprache oder mehrsprachige Informationen"
+            description: "Links zu Leichte Sprache oder Sprachauswahl-Menüs auf der Webseite"
+            type: "operational"
+            patterns:
+              text: ["leichte sprache", "mehrsprachig", "sprachauswahl", "english", "türkçe", "العربية"]
+              url: ["/leichte-sprache", "/en", "/tr"]
+            weight: 1.0
+
+  offene_governance_und_rechenschaftspflicht:
+    name: "Offene Governance & Rechenschaftspflicht"
+    description: "Transparenz in Verwaltung und Rechenschaftslegung"
+    factors:
+      finanzielle_transparenz:
+        name: "Finanzielle Transparenz"
+        description: "Offenlegung von Finanzinformationen"
+        criteria:
+          finanzberichte:
+            name: "Veröffentlichung relevanter Finanzberichte"
+            description: "Links zu Jahreshaushaltsplänen, Verwendungsnachweisen von Fördergeldern"
+            type: "operational"
+            patterns:
+              text: ["jahreshaushaltsplan", "haushaltsplan", "finanzberichte", "verwendungsnachweis", "fördergelder"]
+              url: ["/finanzen", "/transparenz", "/downloads"]
+            weight: 1.0
+      
+      strukturelle_transparenz:
+        name: "Strukturelle Transparenz und Kontaktmöglichkeiten"
+        description: "Transparenz über Organisation und Ansprechpartner"
+        criteria:
+          kontaktmoeglichkeiten:
+            name: "Bereitstellung umfassender Kontaktmöglichkeiten"
+            description: "Auflistung von E-Mail-Adressen und Telefonnummern für Leitung und Fachbereiche"
+            type: "operational"
+            patterns:
+              text: ["kontakt", "ansprechpartner", "e-mail", "telefon", "leitung", "fachbereiche"]
+              url: ["/kontakt", "/team"]
+            weight: 1.0
+          
+          organigramm_zustaendigkeiten:
+            name: "Veröffentlichung von Organigrammen oder Zuständigkeiten"
+            description: "Link zu einem Organigramm, einer Liste der Mitarbeiter und ihrer Funktionen/Zuständigkeiten"
+            type: "operational"
+            patterns:
+              text: ["organigramm", "organisationsstruktur", "zuständigkeiten", "mitarbeiterverzeichnis"]
+              url: ["/organigramm", "/struktur", "/team"]
+            weight: 1.0

@@ -1,0 +1,296 @@
+metadata:
+  name: "Forschungseinrichtungen"
+  description: "Kriterienkatalog für die Bewertung der Offenheit von Forschungseinrichtungen und wissenschaftlichen Instituten"
+  version: "2.0"
+  organization_type: "forschungseinrichtungen"
+  created_date: "2025-01-08"
+  author: "Offenheitscrawler Team"
+
+dimensions:
+  offene_wissenschaft_und_forschung:
+    name: "Offene Wissenschaft & Forschung"
+    description: "Praktiken und Prinzipien der offenen Wissenschaft"
+    factors:
+      open_access_und_publikationen:
+        name: "Open Access und Publikationen"
+        description: "Offener Zugang zu wissenschaftlichen Publikationen"
+        criteria:
+          open_access_policy:
+            name: "Open Access Policy"
+            description: "Institutionelle Open Access Policy oder Leitlinie"
+            type: "strategic"
+            patterns:
+              text: ["open access policy", "open access leitlinie", "publikationsstrategie", "freier zugang"]
+            weight: 1.0
+          
+          open_access_publikationen:
+            name: "Open Access Publikationen"
+            description: "Veröffentlichung von Forschungsergebnissen unter offenen Lizenzen"
+            type: "operational"
+            patterns:
+              text: ["open access", "freier zugang", "offen verfügbar", "creative commons", "cc by"]
+            weight: 1.0
+          
+          preprint_server:
+            name: "Preprint Server Nutzung"
+            description: "Nutzung von Preprint Servern für frühe Veröffentlichung"
+            type: "operational"
+            patterns:
+              text: ["preprint", "arxiv", "biorxiv", "medrxiv", "vorab veröffentlichung"]
+            weight: 1.0
+      
+      open_data_und_fair:
+        name: "Open Data und FAIR-Prinzipien"
+        description: "Offene Forschungsdaten nach FAIR-Prinzipien"
+        criteria:
+          fair_data_policy:
+            name: "FAIR Data Policy"
+            description: "Leitlinien für FAIR (Findable, Accessible, Interoperable, Reusable) Daten"
+            type: "strategic"
+            patterns:
+              text: ["fair data", "fair prinzipien", "datenmanagement policy", "forschungsdaten leitlinie"]
+            weight: 1.0
+          
+          open_data_repository:
+            name: "Open Data Repository"
+            description: "Bereitstellung von Forschungsdaten in offenen Repositorien"
+            type: "operational"
+            patterns:
+              text: ["open data", "datenrepository", "forschungsdaten", "zenodo", "figshare", "dryad"]
+            weight: 1.0
+          
+          datenmanagementplan:
+            name: "Datenmanagementpläne"
+            description: "Verwendung von Datenmanagementplänen für Forschungsprojekte"
+            type: "operational"
+            patterns:
+              text: ["datenmanagementplan", "dmp", "data management plan", "datenmanagement"]
+            weight: 1.0
+      
+      open_source_und_software:
+        name: "Open Source Software und Code"
+        description: "Entwicklung und Nutzung offener Software"
+        criteria:
+          open_source_software:
+            name: "Open Source Software Entwicklung"
+            description: "Entwicklung und Veröffentlichung von Open Source Software"
+            type: "operational"
+            patterns:
+              text: ["open source", "github", "gitlab", "freie software", "quellcode verfügbar"]
+            weight: 1.0
+          
+          reproducible_research:
+            name: "Reproduzierbare Forschung"
+            description: "Maßnahmen für reproduzierbare Forschung und Code-Sharing"
+            type: "operational"
+            patterns:
+              text: ["reproduzierbare forschung", "reproducible research", "code sharing", "jupyter notebook"]
+            weight: 1.0
+
+  partizipation_und_citizen_science:
+    name: "Partizipation & Citizen Science"
+    description: "Beteiligung der Öffentlichkeit an Forschungsprozessen"
+    factors:
+      citizen_science:
+        name: "Citizen Science und Bürgerwissenschaft"
+        description: "Einbeziehung von Bürgern in Forschungsaktivitäten"
+        criteria:
+          citizen_science_projekte:
+            name: "Citizen Science Projekte"
+            description: "Durchführung von Citizen Science Projekten"
+            type: "operational"
+            patterns:
+              text: ["citizen science", "bürgerwissenschaft", "crowdsourcing", "bürgerbeteiligung forschung"]
+            weight: 1.0
+          
+          partizipative_forschung:
+            name: "Partizipative Forschungsansätze"
+            description: "Einbeziehung von Stakeholdern in Forschungsdesign und -durchführung"
+            type: "operational"
+            patterns:
+              text: ["partizipative forschung", "co-creation", "stakeholder einbindung", "community based research"]
+            weight: 1.0
+          
+          oeffentliche_konsultationen:
+            name: "Öffentliche Konsultationen"
+            description: "Durchführung öffentlicher Konsultationen zu Forschungsthemen"
+            type: "operational"
+            patterns:
+              text: ["öffentliche konsultation", "stakeholder dialog", "bürgerdialog", "public consultation"]
+            weight: 1.0
+      
+      wissenschaftskommunikation:
+        name: "Offene Wissenschaftskommunikation"
+        description: "Kommunikation von Forschung an die Öffentlichkeit"
+        criteria:
+          science_communication:
+            name: "Aktive Wissenschaftskommunikation"
+            description: "Regelmäßige Kommunikation von Forschungsergebnissen"
+            type: "operational"
+            patterns:
+              text: ["wissenschaftskommunikation", "science communication", "forschungsblog", "podcast"]
+            weight: 1.0
+          
+          social_media_praesenz:
+            name: "Social Media Präsenz"
+            description: "Aktive Nutzung sozialer Medien für Wissenschaftskommunikation"
+            type: "operational"
+            patterns:
+              text: ["twitter", "mastodon", "linkedin", "youtube", "social media", "wissenschaft online"]
+            weight: 1.0
+
+  transparenz_und_governance:
+    name: "Transparenz & Governance"
+    description: "Offenheit in Verwaltung und Entscheidungsprozessen"
+    factors:
+      institutionelle_transparenz:
+        name: "Institutionelle Transparenz"
+        description: "Offenlegung von Strukturen und Prozessen"
+        criteria:
+          organisationsstruktur:
+            name: "Transparente Organisationsstruktur"
+            description: "Klare Darstellung der Organisationsstruktur und Leitungsebenen"
+            type: "operational"
+            patterns:
+              text: ["organigramm", "organisationsstruktur", "leitung", "vorstand", "direktorium"]
+            weight: 1.0
+          
+          entscheidungsprozesse:
+            name: "Transparente Entscheidungsprozesse"
+            description: "Offenlegung von Entscheidungswegen und Governance-Strukturen"
+            type: "strategic"
+            patterns:
+              text: ["entscheidungsprozesse", "governance", "beirat", "kuratorium", "gremien"]
+            weight: 1.0
+          
+          jahresberichte:
+            name: "Umfassende Jahresberichte"
+            description: "Veröffentlichung detaillierter Jahres- und Tätigkeitsberichte"
+            type: "operational"
+            patterns:
+              text: ["jahresbericht", "tätigkeitsbericht", "forschungsbericht", "rechenschaftsbericht"]
+            weight: 1.0
+      
+      finanzielle_transparenz:
+        name: "Finanzielle Transparenz"
+        description: "Offenlegung von Finanzinformationen"
+        criteria:
+          haushaltsplanung:
+            name: "Transparente Haushaltsplanung"
+            description: "Veröffentlichung von Haushaltsplänen und Finanzberichten"
+            type: "operational"
+            patterns:
+              text: ["haushaltsplan", "finanzbericht", "budget", "mittelverwendung"]
+            weight: 1.0
+          
+          drittmittel_transparenz:
+            name: "Drittmittel-Transparenz"
+            description: "Offenlegung von Drittmittelgebern und Projektfinanzierung"
+            type: "operational"
+            patterns:
+              text: ["drittmittel", "förderer", "projektfinanzierung", "sponsoren", "funding"]
+            weight: 1.0
+
+  offene_werte_und_ethik:
+    name: "Offene Werte & Ethik"
+    description: "Bekenntnis zu offenen Werten und ethischen Prinzipien"
+    factors:
+      forschungsethik:
+        name: "Forschungsethik und Integrität"
+        description: "Ethische Richtlinien und Integrität in der Forschung"
+        criteria:
+          ethikrichtlinien:
+            name: "Ethikrichtlinien veröffentlicht"
+            description: "Veröffentlichung von Forschungsethik-Richtlinien"
+            type: "strategic"
+            patterns:
+              text: ["forschungsethik", "ethikrichtlinien", "research ethics", "integrität"]
+            weight: 1.0
+          
+          ethikkommission:
+            name: "Ethikkommission etabliert"
+            description: "Einrichtung einer Ethikkommission oder entsprechender Gremien"
+            type: "operational"
+            patterns:
+              text: ["ethikkommission", "ethics committee", "irb", "institutional review board"]
+            weight: 1.0
+          
+          good_scientific_practice:
+            name: "Gute wissenschaftliche Praxis"
+            description: "Leitlinien für gute wissenschaftliche Praxis"
+            type: "strategic"
+            patterns:
+              text: ["gute wissenschaftliche praxis", "good scientific practice", "wissenschaftliche integrität"]
+            weight: 1.0
+      
+      diversity_und_inklusion:
+        name: "Diversity und Inklusion"
+        description: "Maßnahmen für Vielfalt und Inklusion"
+        criteria:
+          diversity_policy:
+            name: "Diversity und Inklusions-Policy"
+            description: "Strategien und Maßnahmen für Vielfalt und Inklusion"
+            type: "strategic"
+            patterns:
+              text: ["diversity", "vielfalt", "inklusion", "chancengleichheit", "gleichstellung"]
+            weight: 1.0
+          
+          barrierefreiheit:
+            name: "Barrierefreiheit"
+            description: "Maßnahmen für barrierefreien Zugang zu Forschung und Einrichtungen"
+            type: "operational"
+            patterns:
+              text: ["barrierefreiheit", "accessibility", "inklusive forschung", "universal design"]
+            weight: 1.0
+
+  innovation_und_kollaboration:
+    name: "Innovation & Kollaboration"
+    description: "Innovative Ansätze und offene Kollaboration"
+    factors:
+      offene_innovation:
+        name: "Offene Innovation"
+        description: "Offene Innovations- und Kollaborationsansätze"
+        criteria:
+          living_labs:
+            name: "Living Labs und Reallabore"
+            description: "Betrieb von Living Labs oder Reallaboren für offene Innovation"
+            type: "operational"
+            patterns:
+              text: ["living lab", "reallabor", "innovation lab", "testbed", "experimentierraum"]
+            weight: 1.0
+          
+          hackathons_und_events:
+            name: "Hackathons und Open Innovation Events"
+            description: "Durchführung von Hackathons und offenen Innovationsveranstaltungen"
+            type: "operational"
+            patterns:
+              text: ["hackathon", "datathon", "innovation challenge", "open innovation event"]
+            weight: 1.0
+          
+          maker_spaces:
+            name: "Maker Spaces und FabLabs"
+            description: "Bereitstellung von Maker Spaces für offene Innovation"
+            type: "operational"
+            patterns:
+              text: ["maker space", "fablab", "3d druck", "prototyping", "digital fabrication"]
+            weight: 1.0
+      
+      internationale_kollaboration:
+        name: "Internationale Kollaboration"
+        description: "Offene internationale Zusammenarbeit"
+        criteria:
+          globale_netzwerke:
+            name: "Globale Forschungsnetzwerke"
+            description: "Teilnahme an globalen Forschungsnetzwerken und -initiativen"
+            type: "operational"
+            patterns:
+              text: ["globale netzwerke", "internationale kooperation", "research network", "consortium"]
+            weight: 1.0
+          
+          austauschprogramme:
+            name: "Offene Austauschprogramme"
+            description: "Programme für internationalen Wissenschaftleraustausch"
+            type: "operational"
+            patterns:
+              text: ["austauschprogramm", "visiting researcher", "fellowship", "mobility program"]
+            weight: 1.0
