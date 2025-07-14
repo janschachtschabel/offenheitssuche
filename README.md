@@ -1,4 +1,4 @@
-# 🔍 Offenheitscrawler
+# 🔍 Offenheits-Suche für Organisationen
 
 Ein Python-Tool zur automatisierten Analyse von Organisationen hinsichtlich ihrer Offenheitskriterien mit moderner Streamlit-Oberfläche.
 
@@ -633,7 +633,7 @@ Beiträge sind willkommen! Bitte:
 
 ## 📄 Lizenz
 
-Dieses Projekt steht unter der MIT-Lizenz.
+Dieses Projekt steht unter der Apache 2.0 Lizenz.
 
 ## 🆘 Support
 
